@@ -54,8 +54,8 @@ const Contact = () => {
     {
       icon: <MapPin className="w-6 h-6 text-primary" />,
       title: 'Address',
-      details: ['123 Hospitality Street', 'Mumbai, Maharashtra 400001, India'],
-      description: 'Visit us in the heart of Mumbai'
+      details: ['Ghanta Ghar, Bhagat Singh Rd, next to Rajdoot sweets, Bijopuri, Saharanpur, Uttar Pradesh 247001 India'],
+      description: 'Visit us in the heart of Saharanpur'
     },
     {
       icon: <Clock className="w-6 h-6 text-primary" />,

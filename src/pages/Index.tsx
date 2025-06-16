@@ -190,7 +190,7 @@ const Index = () => {
                 />
                 <div>
                   <p className="font-semibold text-hotel-blue">Priya Sharma</p>
-                  <p className="text-sm text-gray-500">Mumbai</p>
+                  <p className="text-sm text-gray-500">Delhi</p>
                 </div>
               </div>
             </div>
