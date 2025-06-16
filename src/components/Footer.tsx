@@ -68,8 +68,8 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Contact Info</h3>
             <div className="space-y-2 text-sm text-gray-300">
-              <p>123 Hospitality Street</p>
-              <p>Mumbai, Maharashtra 400001</p>
+              <p>Ghanta Ghar, Bhagat Singh Rd, next to Rajdoot sweets, Bijopuri</p>
+              <p> Saharanpur, Uttar Pradesh  247001</p>
               <p>India</p>
               <p className="pt-2">
                 <strong>Phone:</strong> +91 22 1234 5678
@@ -84,7 +84,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-gray-300">
-              © 2024 Hotel Swagat. All rights reserved.
+              © 2025 Hotel Swagat. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
               <Link to="/privacy" className="text-gray-300 hover:text-white transition-colors">

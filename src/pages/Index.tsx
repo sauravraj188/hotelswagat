@@ -27,7 +27,7 @@ const Index = () => {
       name: 'Family Suite',
       type: 'Suite',
       price: 5500,
-      image: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=600&h=400&fit=crop',
+      image: 'https://res.cloudinary.com/dulcnzla9/image/upload/v1750094209/suite-min-scaled_gkozxa.jpg',
       rating: 4.9,
       reviews: 89,
       capacity: 4,
