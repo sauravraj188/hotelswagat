@@ -46,7 +46,7 @@ const RoomDetails = () => {
     amenities: ['WiFi', 'Breakfast', 'Parking', 'AC', 'Mini Bar', 'Room Service'],
     description: 'Experience luxury and comfort in our spacious Deluxe Room at Hotel Swagat. Perfect for couples or business travelers, this elegantly appointed room features modern amenities and stunning city views.',
     images: [
-      'https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=800&h=600&fit=crop',
+      'https://res.cloudinary.com/dulcnzla9/image/upload/v1750093375/ac-min-scaled_a8fmre.jpg',
       'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=800&h=600&fit=crop',
       'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=600&fit=crop',
       'https://images.unsplash.com/photo-1483058712412-4245e9b90334?w=800&h=600&fit=crop',

@@ -15,7 +15,7 @@ const Index = () => {
       name: 'Deluxe Room',
       type: 'Deluxe',
       price: 3500,
-      image: 'https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=600&h=400&fit=crop',
+      image: 'https://res.cloudinary.com/dulcnzla9/image/upload/v1750093375/ac-min-scaled_a8fmre.jpg',
       rating: 4.8,
       reviews: 124,
       capacity: 2,
