@@ -8,40 +8,117 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { User, Lock, Mail, Eye, EyeOff } from 'lucide-react';
 import { toast } from 'sonner';
+import api from '@/api/client';
 
-const Login = () => {
+// const Login = () => {
+//   const navigate = useNavigate();
+//   const [showPassword, setShowPassword] = useState(false);
+//   const [loginData, setLoginData] = useState({ email: '', password: '', remember: false });
+//   const [signupData, setSignupData] = useState({ 
+//     name: '', 
+//     email: '', 
+//     password: '', 
+//     confirmPassword: '', 
+//     phone: '',
+//     terms: false 
+//   });
+
+//   const handleLogin = (e: React.FormEvent) => {
+//     e.preventDefault();
+//     console.log('Login attempt:', loginData);
+    
+//     // Store user info in localStorage for demo purposes
+//     localStorage.setItem('user', JSON.stringify({ 
+//       name: 'Welcome User', 
+//       email: loginData.email,
+//       isLoggedIn: true 
+//     }));
+    
+//     toast.success('Welcome back to Hotel Swagat!');
+    
+//     // Redirect to home page
+//     setTimeout(() => {
+//       navigate('/');
+//     }, 1000);
+//   };
+
+//   const handleSignup = (e: React.FormEvent) => {
+//     e.preventDefault();
+//     if (signupData.password !== signupData.confirmPassword) {
+//       toast.error('Passwords do not match');
+//       return;
+//     }
+//     if (!signupData.terms) {
+//       toast.error('Please accept the terms and conditions');
+//       return;
+//     }
+//     console.log('Signup attempt:', signupData);
+    
+//     // Store user info in localStorage for demo purposes
+//     localStorage.setItem('user', JSON.stringify({ 
+//       name: signupData.name, 
+//       email: signupData.email,
+//       isLoggedIn: true 
+//     }));
+    
+//     toast.success('Account created successfully! Welcome to Hotel Swagat!');
+    
+//     // Redirect to home page
+//     setTimeout(() => {
+//       navigate('/');
+//     }, 1000);
+//   };
+
+//   const handleGuestContinue = () => {
+//     console.log('Continuing as guest');
+//     toast.success('Continuing as guest. You can create an account later to save your bookings.');
+    
+//     // Redirect to home page as guest
+//     setTimeout(() => {
+//       navigate('/');
+//     }, 1000);
+//   };
+
+//   const togglePasswordVisibility = () => {
+//     setShowPassword(!showPassword);
+//   };
+export default function Login() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [loginData, setLoginData] = useState({ email: '', password: '', remember: false });
-  const [signupData, setSignupData] = useState({ 
-    name: '', 
-    email: '', 
-    password: '', 
-    confirmPassword: '', 
+  const [signupData, setSignupData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
     phone: '',
-    terms: false 
+    terms: false,
   });
 
-  const handleLogin = (e: React.FormEvent) => {
+  const togglePasswordVisibility = () => setShowPassword(prev => !prev);
+
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Login attempt:', loginData);
-    
-    // Store user info in localStorage for demo purposes
-    localStorage.setItem('user', JSON.stringify({ 
-      name: 'Welcome User', 
-      email: loginData.email,
-      isLoggedIn: true 
-    }));
-    
-    toast.success('Welcome back to Hotel Swagat!');
-    
-    // Redirect to home page
-    setTimeout(() => {
+    try {
+      const { token, user } = await api.post<{ token: string; user: any }>('/auth/login', {
+        email: loginData.email,
+        password: loginData.password,
+      });
+      localStorage.setItem('token', token);
+      localStorage.setItem('user', JSON.stringify({ 
+              name: user.name, 
+              email: user.email,
+              phone:user.phone,
+              isLoggedIn: true 
+            }));
+      toast.success(`Welcome back, ${user.name}!`);
       navigate('/');
-    }, 1000);
+    } catch (err: any) {
+      toast.error(err.message);
+    }
   };
 
-  const handleSignup = (e: React.FormEvent) => {
+  const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     if (signupData.password !== signupData.confirmPassword) {
       toast.error('Passwords do not match');
@@ -51,37 +128,32 @@ const Login = () => {
       toast.error('Please accept the terms and conditions');
       return;
     }
-    console.log('Signup attempt:', signupData);
-    
-    // Store user info in localStorage for demo purposes
-    localStorage.setItem('user', JSON.stringify({ 
-      name: signupData.name, 
-      email: signupData.email,
-      isLoggedIn: true 
-    }));
-    
-    toast.success('Account created successfully! Welcome to Hotel Swagat!');
-    
-    // Redirect to home page
-    setTimeout(() => {
+    try {
+      const { token, user } = await api.post<{ token: string; user: any }>('/auth/signup', {
+        name: signupData.name,
+        email: signupData.email,
+        password: signupData.password,
+        phone: signupData.phone,
+      });
+      localStorage.setItem('token', token);
+      
+      localStorage.setItem('user', JSON.stringify({ 
+        name: user.name, 
+        email: user.email,
+        phone:user.phone,
+        isLoggedIn: true 
+      }));
+      toast.success(`Account created! Welcome, ${user.name}!`);
       navigate('/');
-    }, 1000);
+    } catch (err: any) {
+      toast.error(err.message);
+    }
   };
 
   const handleGuestContinue = () => {
-    console.log('Continuing as guest');
     toast.success('Continuing as guest. You can create an account later to save your bookings.');
-    
-    // Redirect to home page as guest
-    setTimeout(() => {
-      navigate('/');
-    }, 1000);
+    navigate('/');
   };
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-hotel-cream via-white to-hotel-cream flex items-center justify-center p-4">
       <div className="w-full max-w-md">
@@ -310,4 +382,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+

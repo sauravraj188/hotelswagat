@@ -38,7 +38,8 @@ const Header = () => {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem('user');   // clear user info
+  localStorage.removeItem('token');  // clear JWT
     setUser(null);
     setIsMenuOpen(false);
     navigate('/');
