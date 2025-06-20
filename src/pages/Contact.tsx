@@ -237,7 +237,7 @@ const Contact = () => {
                     <div className="space-y-3">
                       <Button className="w-full bg-primary hover:bg-primary/90">
                         <Phone className="w-4 h-4 mr-2" />
-                        Call Now: +91 22 1234 5678
+                        Call Now:+91976029901
                       </Button>
                       <Button variant="outline" className="w-full">
                         Book Online

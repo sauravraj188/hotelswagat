@@ -587,7 +587,7 @@ const Index: React.FC = () => {
   // Mock featured rooms (client-side) with `id` for RoomCardProps
   const featuredRooms = [
     {
-      id: '1',
+      id: '68531fc5bb3547070c72a860',
       name: 'Deluxe Room',
       type: 'Deluxe',
       price: 3500,
@@ -615,7 +615,7 @@ const Index: React.FC = () => {
       name: 'Standard Room',
       type: 'Standard',
       price: 2500,
-      image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=600&h=400&fit=crop',
+      image: 'https://res.cloudinary.com/dulcnzla9/image/upload/v1750094211/nonac-min-scaled_v9tprs.jpg',
       rating: 4.6,
       reviews: 203,
       capacity: 2,
@@ -675,7 +675,7 @@ const Index: React.FC = () => {
                 size="lg"
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-hotel-blue"
-                onClick={() => { window.location.href = 'tel:+1234567890'; }}
+                onClick={() => { window.location.href = 'tel:+919760299901'; }}
               >
                 <Phone className="w-4 h-4 mr-2" />
                 Call Now

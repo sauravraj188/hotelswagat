@@ -226,10 +226,10 @@ const Payment: React.FC = () => {
               </CardHeader>
               <CardContent className="space-y-6">
                 <PaymentQr
-                  upiId="sauravrajind@axl"
+                  upiId="adityagam59@oksbi"
                   payeeName="Hotel Swagat"
                   amount={total}
-                  note="Hotel Booking"
+                  // note="Hotel Booking"
                 />
                 
                 <FormProvider {...imageFormMethods}>
