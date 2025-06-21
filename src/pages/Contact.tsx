@@ -221,15 +221,15 @@ const Contact = () => {
                           close to major business districts and tourist attractions.
                         </p>
                       </div>
-                      {/* <div>
+                      <div>
                         <h4 className="font-semibold text-hotel-blue mb-2">Transportation</h4>
                         <ul className="text-gray-600 space-y-1">
-                          <li>• 15 minutes from Mumbai Airport</li>
-                          <li>• 5 minutes from Central Railway Station</li>
-                          <li>• Walking distance to Marine Drive</li>
-                          <li>• Complimentary airport pickup available</li>
+                        <li>• 50 meters from railway station</li>
+                          <li>• 20 meters from Nehru Marke</li>
+                          <li>• 100 meters from the famous Wooden Market</li>
+                          <li>• 10 meters from the bus stand</li>
                         </ul>
-                      </div> */}
+                      </div>
                     </div>
                   </CardContent>
                 </Card>

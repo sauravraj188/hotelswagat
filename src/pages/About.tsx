@@ -2,19 +2,19 @@
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Star, Users, Calendar, Award } from 'lucide-react';
 
 const About = () => {
   const stats = [
     { icon: <Users className="w-8 h-8 text-primary" />, number: '10,000+', label: 'Happy Guests' },
-    { icon: <Calendar className="w-8 h-8 text-primary" />, number: '15+', label: 'Years of Excellence' },
+    { icon: <Calendar className="w-8 h-8 text-primary" />, number: '25+', label: 'Years of Excellence' },
     { icon: <Star className="w-8 h-8 text-primary" />, number: '4.8', label: 'Average Rating' },
     // { icon: <Award className="w-8 h-8 text-primary" />, number: '25+', label: 'Awards Won' }
   ];
   const customers = [
-    { name: 'Rajesh Kumar', role: 'From Jharkhand', image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?w=300&h=300&fit=crop&crop=face' },
-    { name: 'Priya Sharma', role: 'From Delhi', image: 'https://images.unsplash.com/photo-1483058712412-4245e9b90334?w=300&h=300&fit=crop&crop=face' },
+    { name: 'Rajesh Kumar', role: 'From Jharkhand', image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=300&h=300&fit=crop&crop=face' },
+    { name: 'Priya Sharma', role: 'From Delhi', image: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=300&h=300&fit=crop&crop=face' },
     { name: 'Amit Patel', role: 'From Agra', image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=300&h=300&fit=crop&crop=face' },
     { name: 'Sunita Verma', role: 'From Mumbai', image: 'https://images.unsplash.com/photo-1502767089025-6572583495b8?w=300&h=300&fit=crop&crop=face' },
     { name: 'Rohit Singh', role: 'From Bangalore', image: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=300&h=300&fit=crop&crop=face' },
@@ -54,7 +54,7 @@ const About = () => {
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">About Hotel Swagat</h1>
             <p className="text-xl text-gray-100">
-              Where tradition meets modernity, and every guest experiences the warmth of Indian hospitality
+            Your Comfort Hub in the Heart of Saharanpur
             </p>
           </div>
         </div>
@@ -69,19 +69,13 @@ const About = () => {
                 <h2 className="text-3xl font-bold text-hotel-blue mb-6">Our Story</h2>
                 <div className="space-y-4 text-gray-600">
                   <p>
-                    Founded in 2009, Hotel Swagat began as a vision to create a place where travelers 
-                    could experience authentic Indian hospitality without compromising on modern comfort. 
-                    The word "Swagat" means "welcome" in Hindi, perfectly capturing our essence.
+                  Located right opposite Ghanta Ghar on Nehru Market Road, Bhagat Singh Marg, Hotel Swagat offers the perfect blend of convenience, comfort, and connectivity. Situated in the vibrant heart of Saharanpur, our hotel is a strategic choice for business travelers, families, and tourists alike.
                   </p>
                   <p>
-                    Over the years, we have grown from a small boutique hotel to one of the most 
-                    trusted names in hospitality, consistently delivering exceptional experiences 
-                    that blend traditional warmth with contemporary luxury.
+                  With the city’s key landmarks just steps away — only 50 meters from the railway station, 20 meters from Nehru Market, 100 meters from the famous Wooden Market, and a mere 10 meters from the bus stand — getting around couldn’t be easier.
                   </p>
                   <p>
-                    Today, Hotel Swagat stands as a testament to our commitment to excellence, 
-                    having welcomed guests from around the world and created memories that last a lifetime.
-                  </p>
+                  Whether you’re here for a quick stopover or an extended stay, Hotel Swagat promises warm hospitality, clean and well-furnished rooms, and a peaceful environment amidst the city’s buzz. We take pride in offering affordable luxury and personalized service that makes every stay memorable.</p>
                 </div>
               </div>
               <div className="animate-slide-up">
@@ -134,7 +128,47 @@ const About = () => {
           </div>
         </div>
       </section>
-
+      <section className="py-16 bg-gray-50">
+      <div className="container mx-auto px-4">
+      <Card>
+                  <CardHeader>
+                    <CardTitle className="text-2xl text-hotel-blue">Find Us</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center mb-4">
+                    <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.5342488910073!2d77.54353207527276!3d29.964072722374794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390eea916b62fb3d%3A0x793ca2fcb1eae1fc!2sHotel%20Swagat!5e0!3m2!1sen!2sin!4v1750484449910!5m2!1sen!2sin"
+    title="Hotel Swagat Location"
+    className="w-full h-full rounded-lg"
+    style={{ border: 0 }}
+    allowFullScreen
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+  />
+                    </div>
+                    <div className="space-y-4"> 
+                      <div>
+                        <h4 className="font-semibold text-hotel-blue mb-2">Location</h4>
+                        <p className="text-gray-600">
+                          Hotel Swagat is conveniently located in the heart of Saharanpur at
+                          Ghanta Ghar, Bhagat Singh Rd, next to Rajdoot sweets, Bijopuri, Uttar Pradesh
+                      
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-hotel-blue mb-2">Transportation</h4>
+                        <ul className="text-gray-600 space-y-1">
+                          <li>• 50 meters from railway station</li>
+                          <li>• 20 meters from Nehru Marke</li>
+                          <li>• 100 meters from the famous Wooden Market</li>
+                          <li>• 10 meters from the bus stand</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+            </div>   
+</section>
       {/* Team Section */}
       {/* <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -199,11 +233,16 @@ const About = () => {
                 ))}
               </div>
             </div>
+
+            
           </div>
+
         </div>
       </section>
 
+     
       <Footer />
+      
     </div>
   );
 };
