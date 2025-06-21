@@ -25,7 +25,7 @@
 //     try {
 //       // Adjust URL as needed; here assuming backend at localhost:8000 or 9000.
 //       const response = await axios.post(
-//         'http://localhost:8000/api/upload',
+//         'https://hotelswagatbackend-1.onrender.com/api/upload',
 //         formData,
 //         {
 //           headers: { 'Content-Type': 'multipart/form-data' },

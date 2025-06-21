@@ -104,12 +104,14 @@ export default function Login() {
         email: loginData.email,
         password: loginData.password,
       });
+      // console.log(user)
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify({ 
               name: user.name, 
               email: user.email,
               phone:user.phone,
-              isLoggedIn: true 
+              isLoggedIn: true ,
+              isAdmin: user.isAdmin,
             }));
       toast.success(`Welcome back, ${user.name}!`);
       navigate('/');

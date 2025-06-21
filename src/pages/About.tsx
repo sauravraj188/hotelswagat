@@ -8,10 +8,22 @@ import { Star, Users, Calendar, Award } from 'lucide-react';
 const About = () => {
   const stats = [
     { icon: <Users className="w-8 h-8 text-primary" />, number: '10,000+', label: 'Happy Guests' },
-    { icon: <Calendar className="w-8 h-8 text-primary" />, number: '15', label: 'Years of Excellence' },
+    { icon: <Calendar className="w-8 h-8 text-primary" />, number: '15+', label: 'Years of Excellence' },
     { icon: <Star className="w-8 h-8 text-primary" />, number: '4.8', label: 'Average Rating' },
-    { icon: <Award className="w-8 h-8 text-primary" />, number: '25+', label: 'Awards Won' }
+    // { icon: <Award className="w-8 h-8 text-primary" />, number: '25+', label: 'Awards Won' }
   ];
+  const customers = [
+    { name: 'Rajesh Kumar', role: 'From Jharkhand', image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?w=300&h=300&fit=crop&crop=face' },
+    { name: 'Priya Sharma', role: 'From Delhi', image: 'https://images.unsplash.com/photo-1483058712412-4245e9b90334?w=300&h=300&fit=crop&crop=face' },
+    { name: 'Amit Patel', role: 'From Agra', image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=300&h=300&fit=crop&crop=face' },
+    { name: 'Sunita Verma', role: 'From Mumbai', image: 'https://images.unsplash.com/photo-1502767089025-6572583495b8?w=300&h=300&fit=crop&crop=face' },
+    { name: 'Rohit Singh', role: 'From Bangalore', image: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=300&h=300&fit=crop&crop=face' },
+    { name: 'Neha Gupta', role: 'From Kolkata', image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=300&h=300&fit=crop&crop=face' },
+    // ...add as many as you like
+  ];
+
+  // For seamless loop, we'll duplicate the array
+  const loopCustomers = [...customers, ...customers];
 
   const values = [
     {
@@ -74,7 +86,7 @@ const About = () => {
               </div>
               <div className="animate-slide-up">
                 <img 
-                  src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&h=400&fit=crop" 
+                  src="https://res.cloudinary.com/dulcnzla9/image/upload/v1750479965/155_fcejmj.png" 
                   alt="Hotel Swagat Building"
                   className="rounded-lg shadow-lg w-full h-96 object-cover"
                 />
@@ -89,7 +101,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center text-hotel-blue mb-12">Our Achievements</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {stats.map((stat, index) => (
                 <Card key={index} className="text-center card-hover animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
                   <CardContent className="p-6">
@@ -124,19 +136,19 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-16 bg-gray-50">
+      {/* <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-hotel-blue mb-6">Meet Our Team</h2>
+            <h2 className="text-3xl font-bold text-hotel-blue mb-6">Our Happy Customers</h2>
             <p className="text-gray-600 mb-12">
-              Our dedicated team of hospitality professionals is committed to making your stay memorable
+              Our dedicated team of hospitality professionals is committed to making our customer's stay memorable
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
-                { name: 'Rajesh Kumar', role: 'General Manager', image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?w=300&h=300&fit=crop&crop=face' },
-                { name: 'Priya Sharma', role: 'Guest Relations Manager', image: 'https://images.unsplash.com/photo-1483058712412-4245e9b90334?w=300&h=300&fit=crop&crop=face' },
-                { name: 'Amit Patel', role: 'Head Chef', image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=300&h=300&fit=crop&crop=face' }
+                { name: 'Rajesh Kumar', role: 'From Jharkhand', image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?w=300&h=300&fit=crop&crop=face' },
+                { name: 'Priya Sharma', role: 'From Delhi', image: 'https://images.unsplash.com/photo-1483058712412-4245e9b90334?w=300&h=300&fit=crop&crop=face' },
+                { name: 'Amit Patel', role: 'From Agra', image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=300&h=300&fit=crop&crop=face' }
               ].map((member, index) => (
                 <Card key={index} className="card-hover animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
                   <CardContent className="p-6 text-center">
@@ -150,6 +162,42 @@ const About = () => {
                   </CardContent>
                 </Card>
               ))}
+            </div>
+          </div>
+        </div>
+      </section> */}
+       {/* Our Happy Customers with auto-scrolling marquee */}
+       <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-hotel-blue mb-6">Our Happy Customers</h2>
+            <p className="text-gray-600 mb-12">
+              Our dedicated team of hospitality professionals is committed to making our customer's stay memorable
+            </p>
+            {/* marquee container */}
+            <div className="overflow-hidden">
+              <div
+                className="flex space-x-8 animate-marquee-slow"
+                style={{ width: 'max-content' }}
+              >
+                {loopCustomers.map((member, idx) => (
+                  <Card
+                    key={idx}
+                    className="card-hover animate-float-slow flex-shrink-0"
+                    style={{ width: '200px' }}
+                  >
+                    <CardContent className="p-4 text-center">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-16 h-16 rounded-full mx-auto mb-3 object-cover"
+                      />
+                      <h3 className="text-md font-semibold text-hotel-blue">{member.name}</h3>
+                      <p className="text-gray-600 text-sm">{member.role}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
           </div>
         </div>

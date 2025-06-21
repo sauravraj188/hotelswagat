@@ -530,8 +530,9 @@ import SearchForm, { SearchParams } from '@/components/SearchForm';
 import RoomCard from '@/components/RoomCard';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Star, Shield, Coffee, Wifi, Car, Phone } from 'lucide-react';
+import { Star, Shield, Coffee, Wifi, Car, Phone, Zap, Clock ,BatteryCharging} from 'lucide-react';
 import api from '@/api/client';
+import TestimonialSlider from '@/components/TestimonialSlider';
 
 interface Room {
   _id: string;
@@ -587,39 +588,38 @@ const Index: React.FC = () => {
   // Mock featured rooms (client-side) with `id` for RoomCardProps
   const featuredRooms = [
     {
-      id: '68531fc5bb3547070c72a860',
-      name: 'Deluxe Room',
+      id: '68563ec49acd728a413cf146',
+      name: 'Super Deluxe Room',
       type: 'Deluxe',
-      price: 3500,
+      price: 1599,
       image: 'https://res.cloudinary.com/dulcnzla9/image/upload/v1750093375/ac-min-scaled_a8fmre.jpg',
       rating: 4.8,
       reviews: 124,
       capacity: 2,
-      amenities: ['WiFi', 'Breakfast', 'Parking'],
+      amenities: ['WiFi', 'Parking', 'AC', 'Lift', 'Room Service',],
       description: 'Spacious room with modern amenities and city view'
     },
     {
-      id: '2',
-      name: 'Family Suite',
-      type: 'Suite',
-      price: 5500,
-      image: 'https://res.cloudinary.com/dulcnzla9/image/upload/v1750094209/suite-min-scaled_gkozxa.jpg',
-      rating: 4.9,
+     id:'68563ec49acd728a413cf148',
+    name: 'Deluxe Room',
+    type: 'Deluxe',
+    price: 1299,
+    image: 'https://res.cloudinary.com/dulcnzla9/image/upload/v1750094209/suite-min-scaled_gkozxa.jpg',
+    rating: 4.9,
       reviews: 89,
       capacity: 4,
-      amenities: ['WiFi', 'Breakfast', 'Parking'],
-      description: 'Perfect for families with separate living area'
+      amenities: ['WiFi', 'Parking', 'AC', 'Lift', 'Room Service'],
+      description: 'Enjoy comfort in our spacious Deluxe Room at Hotel Swagat.'
     },
     {
-      id: '3',
+      id:'68563ec49acd728a413cf147',
       name: 'Standard Room',
-      type: 'Standard',
-      price: 2500,
-      image: 'https://res.cloudinary.com/dulcnzla9/image/upload/v1750094211/nonac-min-scaled_v9tprs.jpg',
-      rating: 4.6,
+    type: 'Standard',
+    price: 999,
+    image: 'https://res.cloudinary.com/dulcnzla9/image/upload/v1750094211/nonac-min-scaled_v9tprs.jpg',rating: 4.6,
       reviews: 203,
       capacity: 2,
-      amenities: ['WiFi', 'Parking'],
+      amenities: ['WiFi', 'Parking','Lift', 'Room Service',],
       description: 'Comfortable accommodation with essential amenities'
     }
   ];
@@ -630,16 +630,27 @@ const Index: React.FC = () => {
       title: '24/7 Security',
       description: 'Round-the-clock security for your peace of mind'
     },
-    {
-      icon: <Coffee className="w-8 h-8 text-primary" />,
-      title: 'Complimentary Breakfast',
-      description: 'Start your day with our delicious breakfast spread'
-    },
+
     {
       icon: <Wifi className="w-8 h-8 text-primary" />,
       title: 'Free High-Speed WiFi',
       description: 'Stay connected with complimentary internet access'
     },
+    // {
+    //   icon: <Zap className="w-8 h-8 text-primary" />,
+    //   title: '24 × 7 Power Backup',
+    //   description: 'Uninterrupted power supply round the clock'
+    // },
+    // {
+    //   icon: (
+    //     <div className="flex items-center space-x-1">
+    //       <Zap className="w-8 h-8 text-primary" />
+    //       <Clock className="w-6 h-6 text-primary" />
+    //     </div>
+    //   ),
+    //   title: '24×7 Power Backup',
+    //   description: 'Uninterrupted power supply round the clock'
+    // },
     {
       icon: <Car className="w-8 h-8 text-primary" />,
       title: 'Free Parking',
@@ -794,7 +805,7 @@ const Index: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <div
                 key={index}
@@ -811,7 +822,7 @@ const Index: React.FC = () => {
       </section>
 
       {/* Testimonial Section */}
-      <section className="py-16">
+      {/* <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center animate-slide-up">
             <h2 className="text-3xl font-bold text-hotel-blue mb-8">What Our Guests Say</h2>
@@ -840,7 +851,9 @@ const Index: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+      <TestimonialSlider/>
+      
 
       <Footer />
     </div>

@@ -40,7 +40,7 @@ interface Room {
 }
 
 const Rooms: React.FC = () => {
-  const [priceRange, setPriceRange] = useState<number[]>([1000, 10000]);
+  const [priceRange, setPriceRange] = useState<number[]>([500, 10000]);
   const [sortBy, setSortBy] = useState<'price-low' | 'price-high' | 'rating'>(
     'price-low'
   );
@@ -124,7 +124,7 @@ const Rooms: React.FC = () => {
                   <Slider
                     value={priceRange}
                     onValueChange={(val) => setPriceRange(val as number[])}
-                    min={1000}
+                    min={500}
                     max={10000}
                     step={500}
                   />
@@ -162,7 +162,7 @@ const Rooms: React.FC = () => {
                   variant="outline"
                   className="w-full"
                   onClick={() => {
-                    setPriceRange([1000, 10000]);
+                    setPriceRange([500, 10000]);
                     setSelectedAmenities([]);
                   }}
                 >
@@ -221,7 +221,7 @@ const Rooms: React.FC = () => {
                   variant="outline"
                   className="mt-4"
                   onClick={() => {
-                    setPriceRange([1000, 10000]);
+                    setPriceRange([500, 10000]);
                     setSelectedAmenities([]);
                   }}
                 >

@@ -203,17 +203,25 @@ const Contact = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center mb-4">
-                      <p className="text-gray-600">Interactive Map Coming Soon</p>
+                    <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.5342488910073!2d77.54353207527276!3d29.964072722374794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390eea916b62fb3d%3A0x793ca2fcb1eae1fc!2sHotel%20Swagat!5e0!3m2!1sen!2sin!4v1750484449910!5m2!1sen!2sin"
+    title="Hotel Swagat Location"
+    className="w-full h-full rounded-lg"
+    style={{ border: 0 }}
+    allowFullScreen
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+  />
                     </div>
-                    <div className="space-y-4">
+                    <div className="space-y-4"> 
                       <div>
                         <h4 className="font-semibold text-hotel-blue mb-2">Location</h4>
                         <p className="text-gray-600">
-                          Hotel Swagat is conveniently located in the heart of Mumbai, 
+                          Hotel Swagat is conveniently located in the heart of Saharanpur, 
                           close to major business districts and tourist attractions.
                         </p>
                       </div>
-                      <div>
+                      {/* <div>
                         <h4 className="font-semibold text-hotel-blue mb-2">Transportation</h4>
                         <ul className="text-gray-600 space-y-1">
                           <li>• 15 minutes from Mumbai Airport</li>
@@ -221,7 +229,7 @@ const Contact = () => {
                           <li>• Walking distance to Marine Drive</li>
                           <li>• Complimentary airport pickup available</li>
                         </ul>
-                      </div>
+                      </div> */}
                     </div>
                   </CardContent>
                 </Card>
