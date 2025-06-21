@@ -1328,6 +1328,7 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { Input } from '@/components/ui/input';
+import api from '@/api/client';
 
 interface Booking {
   id: string;
@@ -1551,23 +1552,45 @@ const Admin = () => {
   };
 
   // Action handlers: Ideally should call backend to update status; here we update local state and call API.
-  const handleConfirmBooking = async (bookingId: string) => {
-  const token = localStorage.getItem('token');
-    try {
-      await axios.put(`https://hotelswagatbackend-1.onrender.com/api/bookings/${bookingId}/confirm`, {}, {
-        headers: token ? { Authorization: `Bearer ${token}` } : {},
-      });
-      setAllBookings(prev =>
-        prev.map(b =>
-          b.id === bookingId ? { ...b, status: 'confirmed' } : b
-        )
-      );
-      toast.success(`Booking ${bookingId} confirmed successfully`);
-    } catch (err) {
-      console.error(err);
-      toast.error('Failed to confirm booking');
-    }
-  };
+  // const handleConfirmBooking = async (bookingId: string) => {
+  // const token = localStorage.getItem('token');
+  //   try {
+  //     await axios.put(`https://hotelswagatbackend-1.onrender.com/api/bookings/${bookingId}/confirm`, {}, {
+  //       headers: token ? { Authorization: `Bearer ${token}` } : {},
+  //     });
+  //     setAllBookings(prev =>
+  //       prev.map(b =>
+  //         b.id === bookingId ? { ...b, status: 'confirmed' } : b
+  //       )
+  //     );
+  //     toast.success(`Booking ${bookingId} confirmed successfully`);
+  //   } catch (err) {
+  //     console.error(err);
+  //     toast.error('Failed to confirm booking');
+  //   }
+  // };
+
+
+
+// ...
+
+const handleConfirmBooking = async (bookingId: string) => {
+  try {
+    await api.put<void>(
+      `/bookings/${bookingId}/confirm`,
+      {}
+    );
+    setAllBookings(prev =>
+      prev.map(b =>
+        b.id === bookingId ? { ...b, status: 'confirmed' } : b
+      )
+    );
+    toast.success(`Booking ${bookingId} confirmed successfully`);
+  } catch (err: any) {
+    console.error(err);
+    toast.error(err.message || 'Failed to confirm booking');
+  }
+};
 
   const handleCancelBooking = async (bookingId: string) => {
     const token = localStorage.getItem('token');

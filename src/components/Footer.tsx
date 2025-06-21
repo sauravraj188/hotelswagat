@@ -56,11 +56,11 @@ const Footer = () => {
             <h3 className="text-lg font-semibold">Services</h3>
             <ul className="space-y-2 text-sm text-gray-300">
               <li>Room Service</li>
+              <li>Air Condition</li>
               <li>Free WiFi</li>
-              <li>Complimentary Breakfast</li>
               <li>Parking</li>
-              <li>Laundry Service</li>
               <li>24/7 Support</li>
+
             </ul>
           </div>
 
@@ -72,10 +72,10 @@ const Footer = () => {
               <p> Saharanpur, Uttar Pradesh  247001</p>
               <p>India</p>
               <p className="pt-2">
-                <strong>Phone:</strong> +91 22 1234 5678
+                <strong>Phone:</strong> +919760299901
               </p>
               <p>
-                <strong>Email:</strong> info@hotelswagat.com
+                <strong>Email:</strong> hotelswagat247001@gmail.com
               </p>
             </div>
           </div>

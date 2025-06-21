@@ -42,13 +42,13 @@ const Contact = () => {
     {
       icon: <Phone className="w-6 h-6 text-primary" />,
       title: 'Phone',
-      details: ['+91 22 1234 5678', '+91 22 8765 4321'],
+      details: ['+919760299901'],
       description: 'Call us anytime for reservations or inquiries'
     },
     {
       icon: <Mail className="w-6 h-6 text-primary" />,
       title: 'Email',
-      details: ['info@hotelswagat.com', 'reservations@hotelswagat.com'],
+      details: ['hotelswagat247001@gmail.com'],
       description: 'Send us an email and we\'ll respond within 24 hours'
     },
     {
