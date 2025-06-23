@@ -17,6 +17,7 @@ import {
   X,
 } from 'lucide-react';
 import { toast } from 'sonner';
+import RoomDetailsSkeleton from '@/components/RoomDetailSkeleton';
 
 interface Room {
   _id: string;
@@ -67,7 +68,7 @@ const RoomDetails: React.FC = () => {
   }, [id]);
 
   if (loading) {
-    return <div className="container mx-auto py-8">Loading...</div>;
+    return <RoomDetailsSkeleton/>;
   }
   if (!room) {
     return <div className="container mx-auto py-8">Room not found.</div>;

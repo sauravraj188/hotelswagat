@@ -530,7 +530,8 @@ import SearchForm, { SearchParams } from '@/components/SearchForm';
 import RoomCard from '@/components/RoomCard';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Star, Shield, Coffee, Wifi, Car, Phone, Zap, Clock ,BatteryCharging} from 'lucide-react';
+import { Star, Shield, Coffee, Wifi, Car, Phone, Users, Calendar, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import api from '@/api/client';
 import TestimonialSlider from '@/components/TestimonialSlider';
 
@@ -794,6 +795,69 @@ const Index: React.FC = () => {
           </div>
         </section>
       )}
+
+
+           {/* Banquet Hall Section */}
+           <section className="py-16 bg-gradient-to-r from-hotel-blue to-primary text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6 animate-slide-up">
+                <h2 className="text-3xl lg:text-4xl font-bold">
+                  Host Your Special Events
+                </h2>
+                <p className="text-xl text-gray-100">
+                  Our elegant banquet hall is perfect for weddings, corporate events, 
+                  celebrations, and special occasions. Create unforgettable memories 
+                  with your loved ones in our beautifully designed space.
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="flex items-center space-x-3">
+                    <Users className="w-6 h-6 text-hotel-gold" />
+                    <span>Capacity: 200-500 guests</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <Calendar className="w-6 h-6 text-hotel-gold" />
+                    <span>Available daily</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <Wifi className="w-6 h-6 text-hotel-gold" />
+                    <span>Modern amenities</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <Car className="w-6 h-6 text-hotel-gold" />
+                    <span>Ample parking</span>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link to="/banquet-hall">
+                    <Button size="lg" className="bg-white text-hotel-blue hover:bg-gray-100">
+                      Book Banquet Hall
+                    </Button>
+                  </Link>
+                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-hotel-blue">
+                    View Details
+                  </Button>
+                </div>
+              </div>
+
+              <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
+                <div className="relative">
+                  <img 
+                    src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600&h=400&fit=crop" 
+                    alt="Banquet Hall" 
+                    className="rounded-lg shadow-2xl w-full h-80 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-lg"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* Why Choose Section */}
       <section className="py-16 bg-hotel-cream">

@@ -14,6 +14,7 @@ import { Slider } from '@/components/ui/slider';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import api from '@/api/client';
+import RoomCardSkeleton from '@/components/RoomCardSkeleton';
 
 interface Room {
   _id: string;
@@ -62,15 +63,15 @@ const Rooms: React.FC = () => {
     loadRooms();
   }, []);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-50">
-        <Header />
-        <div className="container mx-auto px-4 py-8">Loading rooms…</div>
-        <Footer />
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="min-h-screen bg-gray-50">
+  //       <Header />
+  //       <div className="container mx-auto px-4 py-8">Loading rooms…</div>
+  //       <Footer />
+  //     </div>
+  //   );
+  // }
 
   const amenitiesList = [
     'WiFi',
@@ -176,10 +177,9 @@ const Rooms: React.FC = () => {
           <section className="lg:w-3/4">
             <div className="flex justify-between items-center mb-6">
               <p className="text-gray-600">
-                {sortedRooms.length} room
-                {sortedRooms.length !== 1 && 's'} found
+                 {loading ? 'Loading rooms...' : `${sortedRooms.length} room${sortedRooms.length !== 1 ? 's' : ''} found`}
               </p>
-              <Select
+              {!loading &&( <Select
                 value={sortBy}
                 onValueChange={(value) =>
                   setSortBy(value as 'price-low' | 'price-high' | 'rating')
@@ -197,11 +197,23 @@ const Rooms: React.FC = () => {
                   </SelectItem>
                   <SelectItem value="rating">Highest Rated</SelectItem>
                 </SelectContent>
-              </Select>
+              </Select>)}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {sortedRooms.map((room, idx) => (
+              
+            {loading ? (
+                // Skeleton loading
+                [...Array(6)].map((_, index) => (
+                  <div 
+                    key={index} 
+                    className="animate-slide-up"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <RoomCardSkeleton />
+                  </div>
+                ))
+              ) :( sortedRooms.map((room, idx) => (
                 <div
                   key={room._id}
                   className="animate-slide-up"
@@ -209,10 +221,10 @@ const Rooms: React.FC = () => {
                 >
                   <RoomCard {...{ id: room._id, ...room }} />
                 </div>
-              ))}
+              )))}
             </div>
 
-            {sortedRooms.length === 0 && (
+            {!loading && sortedRooms.length === 0 && (
               <div className="text-center py-12">
                 <p className="text-gray-500 text-lg">
                   No rooms match your criteria.

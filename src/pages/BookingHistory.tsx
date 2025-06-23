@@ -357,6 +357,7 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Calendar, MapPin, Clock, X, Eye, XCircle } from 'lucide-react';
 import { toast } from 'sonner';
+import BookingCardSkeleton from '@/components/BookingCardSkeleton';
 
 interface Booking {
   id: string;
@@ -502,9 +503,9 @@ const BookingHistory = () => {
     setSelectedBooking(booking);
   };
 
-  if (!user || loading) {
-    return <div className="flex items-center justify-center h-screen">Loading...</div>;
-  }
+  // if (!user || loading) {
+  //   return <div className="flex items-center justify-center h-screen">Loading...</div>;
+  // }
 
   const BookingCard = ({ booking, showCancelOption = false }: { booking: Booking; showCancelOption?: boolean }) => (
     <div className="border rounded-lg p-4 hover:bg-gray-50">
@@ -582,7 +583,13 @@ const BookingHistory = () => {
                 </TabsList>
 
                 <TabsContent value="upcoming">
-                  {upcomingBookings.length === 0 ? (
+                {loading ? (
+                    <div className="space-y-4">
+                      {[...Array(2)].map((_, index) => (
+                        <BookingCardSkeleton key={index} />
+                      ))}
+                    </div>
+                  ) :upcomingBookings.length === 0 ? (
                     <div className="text-center py-12">
                       <Calendar className="w-16 h-16 text-gray-400 mx-auto mb-4" />
                       <h3 className="text-lg font-medium text-gray-900 mb-2">No upcoming bookings</h3>
@@ -602,7 +609,15 @@ const BookingHistory = () => {
                 </TabsContent>
 
                 <TabsContent value="past">
-                  {pastBookings.length === 0 ? (
+
+                {loading ? (
+                    <div className="space-y-4">
+                      {[...Array(3)].map((_, index) => (
+                        <BookingCardSkeleton key={index} />
+                      ))}
+                    </div>
+                  ) : 
+                  pastBookings.length === 0 ? (
                     <div className="text-center py-12">
                       <Calendar className="w-16 h-16 text-gray-400 mx-auto mb-4" />
                       <h3 className="text-lg font-medium text-gray-900 mb-2">No past bookings</h3>

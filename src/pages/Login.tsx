@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -9,6 +9,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { User, Lock, Mail, Eye, EyeOff } from 'lucide-react';
 import { toast } from 'sonner';
 import api from '@/api/client';
+import RoomCardSkeleton from '@/components/RoomCardSkeleton';
+import IndexSkeleton from '@/components/IndexSkeleton';
+
 
 // const Login = () => {
 //   const navigate = useNavigate();
@@ -84,6 +87,7 @@ import api from '@/api/client';
 //   };
 export default function Login() {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [loginData, setLoginData] = useState({ email: '', password: '', remember: false });
   const [signupData, setSignupData] = useState({
@@ -99,6 +103,7 @@ export default function Login() {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const { token, user } = await api.post<{ token: string; user: any }>('/auth/login', {
         email: loginData.email,
@@ -118,6 +123,7 @@ export default function Login() {
     } catch (err: any) {
       toast.error(err.message);
     }
+    setLoading(false);
   };
 
   const handleSignup = async (e: React.FormEvent) => {
@@ -130,6 +136,7 @@ export default function Login() {
       toast.error('Please accept the terms and conditions');
       return;
     }
+    setLoading(true);
     try {
       const { token, user } = await api.post<{ token: string; user: any }>('/auth/signup', {
         name: signupData.name,
@@ -147,6 +154,7 @@ export default function Login() {
       }));
       toast.success(`Account created! Welcome, ${user.name}!`);
       navigate('/');
+      setLoading(false);
     } catch (err: any) {
       toast.error(err.message);
     }
@@ -156,6 +164,10 @@ export default function Login() {
     toast.success('Continuing as guest. You can create an account later to save your bookings.');
     navigate('/');
   };
+  if (loading) {
+    return <IndexSkeleton />;
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-hotel-cream via-white to-hotel-cream flex items-center justify-center p-4">
       <div className="w-full max-w-md">
